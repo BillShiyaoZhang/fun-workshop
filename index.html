@@ -95,7 +95,7 @@
         function handleHashChange() {
             let hash = window.location.hash || '#home';
             // Fallback for invalid hashes
-            if (!['#home', '#program', '#directions', '#flyer'].includes(hash)) {
+            if (!['#home', '#program', '#directions', '#flyer', '#join'].includes(hash)) {
                 hash = '#home';
             }
             const pageId = hash.substring(1);
@@ -122,6 +122,49 @@
         });
 
         window.addEventListener('hashchange', handleHashChange);
+
+        function submitVolunteerForm() {
+            const name = document.getElementById('volunteer-name') ? document.getElementById('volunteer-name').value.trim() : '';
+            const suggestions = document.getElementById('volunteer-suggestion') ? document.getElementById('volunteer-suggestion').value.trim() : '';
+
+            const roles = [];
+            if (document.getElementById('role-web') && document.getElementById('role-web').checked) roles.push(document.getElementById('role-web').value);
+            if (document.getElementById('role-exec') && document.getElementById('role-exec').checked) roles.push(document.getElementById('role-exec').value);
+            if (document.getElementById('role-plan') && document.getElementById('role-plan').checked) roles.push(document.getElementById('role-plan').value);
+
+            if (!name && roles.length === 0 && !suggestions) {
+                const lang = document.documentElement.getAttribute('lang');
+                if (lang === 'zh') {
+                    alert('请至少填写一些您的信息！');
+                } else {
+                    alert('Please provide some information before drafting the email!');
+                }
+                return;
+            }
+
+            let body = `Name: ${name || 'Not provided'}\n\n`;
+
+            body += `Interested Roles:\n`;
+            if (roles.length > 0) {
+                body += `- ${roles.join('\n- ')}\n\n`;
+            } else {
+                body += `None specified\n\n`;
+            }
+
+            body += `Suggestions / Self-recommendation:\n`;
+            if (suggestions) {
+                body += `${suggestions}\n\n`;
+            } else {
+                body += `None\n\n`;
+            }
+
+            body += `-----\nSent from the Fun Workshop website via Join Us page.`;
+
+            const subject = encodeURIComponent("Application for Fun Workshop Volunteer / 申请加入 Fun Workshop 志愿团队");
+            const mailtoLink = `mailto:shiyao.zhang14@student.xjtlu.edu.cn?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink;
+        }
     </script>
 </head>
 
@@ -162,6 +205,12 @@
                 <a class="nav-link" title="Workshop Flyer" href="#flyer">
                     <span class="lang-en">Flyer</span>
                     <span class="lang-zh">海报</span>
+                </a>
+            </td>
+            <td class="navigation">
+                <a class="nav-link" title="Join Us" href="#join">
+                    <span class="lang-en">Join Us</span>
+                    <span class="lang-zh">加入我们</span>
                 </a>
             </td>
             <td class="navigation" style="width: 80px;">

@@ -1,0 +1,167 @@
+<style>
+    .join-form {
+        margin-top: 20px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .checkbox-group {
+        margin-bottom: 10px;
+    }
+
+    .checkbox-group label {
+        font-weight: normal;
+        display: inline-block;
+        margin-left: 5px;
+        margin-bottom: 8px;
+        cursor: pointer;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+
+    button.submit-btn {
+        background-color: #0056b3;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+
+    button.submit-btn:hover {
+        background-color: #004494;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .join-form {
+            background-color: #222;
+            border-color: #444;
+        }
+
+        .form-group label {
+            color: #ddd;
+        }
+
+        input[type="text"],
+        textarea {
+            background-color: #333;
+            color: #fff;
+            border-color: #555;
+        }
+
+        button.submit-btn {
+            background-color: #28a745;
+        }
+
+        button.submit-btn:hover {
+            background-color: #218838;
+        }
+    }
+</style>
+
+<h2 class="lang-en">Join Our Volunteer Team</h2>
+<h2 class="lang-zh">加入我们</h2>
+
+<div class="lang-en">
+    <p>
+        Fun Workshop is a sharing plan, and the most important thing is <strong>For fun</strong>! We hope to gather all
+        kinds of interesting voices to share, adding some brightness to our study, research, and work.
+    </p>
+    <p>
+        Currently, Fun Workshop is still running on a volunteer basis. While we remind you to be cautious, we also
+        highly encourage and look forward to your joining us in the operation project. We cherish the goodwill and
+        contribution of every volunteer.
+    </p>
+</div>
+
+<div class="lang-zh">
+    <p>
+        Fun Workshop 是一个分享计划，最重要的就是 <strong>For fun</strong>！我们希望能网罗到各类有趣的声音来做分享，为我们的学习、研究、工作增添一些些明亮～
+    </p>
+    <p>
+        目前 Fun Workshop 仍是志愿运行。我们在提醒慎重的同时，也非常鼓励并期待您的加入，共同参与运营项目。我们珍视每一位志愿者的善意与付出。
+    </p>
+</div>
+
+<div class="join-form">
+    <div class="form-group">
+        <label for="volunteer-name">
+            <span class="lang-en">Your Name / How to address you:</span>
+            <span class="lang-zh">姓名或称呼：</span>
+        </label>
+        <input type="text" id="volunteer-name" placeholder="Enter your name / 输入您的名字">
+    </div>
+
+    <div class="form-group">
+        <label>
+            <span class="lang-en">Roles you are interested in (Multiple choices allowed):</span>
+            <span class="lang-zh">您感兴趣的工作（可多选）：</span>
+        </label>
+        <div class="checkbox-group">
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-web" value="Website Maintenance / 网站维护">
+                <label for="role-web">
+                    <span class="lang-en"><strong>Website Maintenance:</strong> Assist in updating and maintaining the
+                        workshop's website pages.</span>
+                    <span class="lang-zh"><strong>网站维护：</strong>协助更新和维护工作坊的网站页面。</span>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-exec" value="Event Execution / 活动实施">
+                <label for="role-exec">
+                    <span class="lang-en"><strong>Event Execution:</strong> Assist in on-site organization, logistics,
+                        and equipment support for offline or online events.</span>
+                    <span class="lang-zh"><strong>活动实施：</strong>协助线下或线上活动的现场组织、机动与设备支持。</span>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-plan" value="Event Planning / 活动策划">
+                <label for="role-plan">
+                    <span class="lang-en"><strong>Event Planning:</strong> Participate in theme planning, contacting
+                        speakers, and preliminary preparation for the workshop.</span>
+                    <span class="lang-zh"><strong>活动策划：</strong>参与工作坊的主题策划、分享者联络与前期准备。</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="volunteer-suggestion">
+            <span class="lang-en">Other Suggestions or Self-recommendation:</span>
+            <span class="lang-zh">自己建议的工作内容或其他自荐信息：</span>
+        </label>
+        <textarea id="volunteer-suggestion" rows="5"
+            placeholder="If you have other areas where you can shine, you are also very welcome to suggest your own work! / 如果您有其他可以发光发热的地方，也非常欢迎您自己建议工作内容！"></textarea>
+    </div>
+
+    <button class="submit-btn" onclick="submitVolunteerForm()">
+        <span class="lang-en">Draft Application Email</span>
+        <span class="lang-zh">起草申请邮件</span>
+    </button>
+</div>
