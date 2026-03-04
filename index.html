@@ -4,13 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <base href=".">
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css" />
     <meta name="description" content="Fun Workshop">
     <meta name="resource-type" content="document">
     <meta name="distribution" content="global">
     <meta name="KeyWords" content="Workshop">
     <title>Fun Workshop</title>
+    <style>
+        html:not([lang="zh"]) .lang-zh {
+            display: none !important;
+        }
+
+        html[lang="zh"] .lang-en {
+            display: none !important;
+        }
+    </style>
+    <script>
+        function toggleLanguage(event) {
+            if (event) event.preventDefault();
+            const html = document.documentElement;
+            if (html.getAttribute('lang') === 'zh') {
+                html.setAttribute('lang', 'en');
+                localStorage.setItem('lang', 'en');
+            } else {
+                html.setAttribute('lang', 'zh');
+                localStorage.setItem('lang', 'zh');
+            }
+        }
+
+        // Initialize language from localStorage if available
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('lang');
+            if (savedLang) {
+                document.documentElement.setAttribute('lang', savedLang);
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -21,60 +51,188 @@
             <span class="title1">Fun</span><span class="title2">Workshop</span> <span class="year">2026</span>
         </div>
         <div class="bottom-right">
-            March - May, 2026 <br> XJTLU, Suzhou
+            <span class="lang-en">March - May, 2026 <br> XJTLU, Suzhou</span>
+            <span class="lang-zh">2026年3月 - 5月 <br> 西交利物浦大学，苏州</span>
         </div>
     </div>
 
     <table class="navigation">
         <tr>
             <td class="navigation">
-                <a class="current" title="Workshop Home Page" href=".">Home</a>
+                <a class="current" title="Workshop Home Page" href=".">
+                    <span class="lang-en">Home</span>
+                    <span class="lang-zh">首页</span>
+                </a>
             </td>
             <!-- <td class="navigation">
-                <a title="Register for the Conference" href="registration">Registration</a>
+                <a title="Register for the Conference" href="registration">
+                    <span class="lang-en">Registration</span>
+                    <span class="lang-zh">注册</span>
+                </a>
             </td> -->
             <td class="navigation">
-                <a title="Workshop Program" href="program">Program</a> 
+                <a title="Workshop Program" href="program">
+                    <span class="lang-en">Program</span>
+                    <span class="lang-zh">日程</span>
+                </a>
             </td>
             <td class="navigation">
-                <a title="Directions to the Workshop" href="directions">Directions</a>
+                <a title="Directions to the Workshop" href="directions">
+                    <span class="lang-en">Directions</span>
+                    <span class="lang-zh">交通</span>
+                </a>
             </td>
             <td class="navigation">
-                <a title="Workshop Flyer" href="flyer">Flyer</a>
+                <a title="Workshop Flyer" href="flyer">
+                    <span class="lang-en">Flyer</span>
+                    <span class="lang-zh">海报</span>
+                </a>
+            </td>
+            <td class="navigation" style="width: 80px;">
+                <a title="Toggle Language" href="#" onclick="toggleLanguage(event)">中 / En</a>
             </td>
         </tr>
     </table>
 
-    <h2>About this workshop</h2>
-    <p>
-        This is for fun! Share your interesting projects with others.
-        Meet new friends who share your interests.
-        Learn new skills and have a great time!
-    </p>
+    <h2 class="lang-en">About this workshop</h2>
+    <h2 class="lang-zh">关于本坊</h2>
 
-    <p>
-        The workshop will be held at XJTLU, Suzhou, China from March to May, 2026.
-        Stay tuned for more details about the schedule in the <a href="program">Program</a> page.
-    </p>
+    <div class="lang-en">
+        <p>
+            This is for fun! Share your interesting projects with others.
+            Meet new friends who share your interests.
+            Learn new skills and have a great time!
+        </p>
 
-    <p>
-        We welcome participants from all backgrounds and skill levels.
-        Whether you are a beginner or an experienced practitioner,
-        there is something for everyone at this workshop.
-        Join us for a fun and engaging experience!
-    </p>
+        <p>
+            The workshop will be held at XJTLU, Suzhou, China from March to May, 2026.
+            Stay tuned for more details about the schedule in the <a href="program">Program</a> page.
+        </p>
 
-    <p>
-        For any questions, please contact the coordinator Shiyao Zhang at <a href="mailto:shiyao.zhang14@student.xjtlu.edu.cn">shiyao.zhang14@student.xjtlu.edu.cn</a>.
-    </p>
+        <p>
+            We welcome participants from all backgrounds and skill levels.
+            Whether you are a beginner or an experienced practitioner,
+            there is something for everyone at this workshop.
+            Join us for a fun and engaging experience!
+        </p>
 
-    <h2>Organizers</h2>
-    <p>
-        Here&rsquo;s a good place to list the organizers and sponsors of the conference,
-        as well as list contact information for the organizers,
-        and show off the logos of the sponsors.
-        It looks like his conference was sponsored by kittens!
-    </p>
+        <p>
+            For any questions, please contact the coordinator Shiyao Zhang at <a
+                href="mailto:shiyao.zhang14@student.xjtlu.edu.cn">shiyao.zhang14@student.xjtlu.edu.cn</a>.
+        </p>
+    </div>
+
+    <div class="lang-zh">
+        <p>
+            这就是为了好玩！与他人分享你有趣的项目。结识志同道合的新朋友。学习新技能，度过一段美好的时光！
+        </p>
+
+        <p>
+            本工作坊将于 2026 年 3 月至 5 月在中国苏州的西交利物浦大学举行。
+            请关注<a href="program">日程（Program）</a>页面以获取更多详细信息。
+        </p>
+
+        <p>
+            我们欢迎所有背景和技能水平的参与者。
+            无论你是初学者还是经验丰富的实践者，
+            这个工作坊中都有适合你的内容。
+            加入我们，体验充满乐趣和参与感的活动吧！
+        </p>
+
+        <p>
+            如有任何问题，请联系协调人 Shiyao Zhang：<a
+                href="mailto:shiyao.zhang14@student.xjtlu.edu.cn">shiyao.zhang14@student.xjtlu.edu.cn</a>。
+        </p>
+    </div>
+
+    <h2 class="lang-en">Principles & Guidelines</h2>
+    <h2 class="lang-zh">原则与指南</h2>
+
+    <div class="lang-en">
+        <p>Fun Workshop is a sharing program, and the most important thing is <strong>For fun!</strong> We hope to
+            gather all kinds of interesting voices to share, adding some brightness to our study, research, and work~
+        </p>
+
+        <p>Fun Workshop aims to provide sincere information and insights, so we plan to show full respect to the
+            speakers. We expect speakers to inform us of the materials they will use before the event, but we do not
+            restrict the speakers' self-determination for any factors other than legal awareness.</p>
+
+        <p>Currently, the topics collected cover multiple fields, including AI, business, interaction design, personal
+            growth, non-mainstream perspectives, etc. We cherish the goodwill and courage of all speakers.</p>
+
+        <p>Therefore, to maintain the community atmosphere, we sincerely suggest that everyone do not spread the
+            information discussed in the community, and less judge the speaker's expression. Currently, we only promote
+            activities on the Xi'an Jiaotong-Liverpool University campus.</p>
+
+        <p>Fun Workshop supports a bilingual environment in Chinese and English. In environments that natively support
+            language translation (e.g., WeChat), the information we publish uses the language spoken by the majority; in
+            environments without native translation support, we provide bilingual materials (e.g., posters) or real-time
+            language translation services (e.g., using the built-in translation function of Tencent Meeting at the
+            event).</p>
+
+        <p>For online meetings, it should be noted that Fun Workshop does not guarantee that remote online participation
+            is provided for all activities, due to various considerations including topic sensitivity.</p>
+
+        <p>Fun Workshop plans to collect, store and edit audio and video data of speakers at the event site after
+            obtaining consent, and use it for appropriate dissemination and sharing after explicit confirmation.
+            However, we do not collect any other data before explicit notification and explicit authorization.</p>
+
+        <p>Fun Workshop voluntarily adopts the academic ethics standards of Xi'an Jiaotong-Liverpool University,
+            publishes the corresponding documents, and welcomes everyone's supervision.</p>
+
+        <p>Fun Workshop has set up a website for long-term information sharing. All kinds of information will be posted
+            simultaneously in the WeChat group and on the website. Website address: <a
+                href="https://billshiyaozhang.github.io/fun-workshop/">https://billshiyaozhang.github.io/fun-workshop/</a>
+        </p>
+
+        <p>Currently, Fun Workshop is still running on a volunteer basis. While we encourage everyone to join the
+            operation team, we also remind you to be cautious.</p>
+    </div>
+
+    <div class="lang-zh">
+        <p>Fun Workshop 是一个分享计划，最重要的就是 <strong>For fun！</strong>我们希望能网罗到各类有趣的声音来做分享，为我们的学习、研究、工作增添一些些明亮～</p>
+
+        <p>Fun Workshop 旨在提供诚恳的信息与见解，因此我们计划为分享者表示充分的尊重。我们期待分享者在活动前知会其将使用的材料，但我们不因除法律自觉外的其他因素限制分享者的自决。</p>
+
+        <p>目前，已征集到的分享话题囊括多个领域，AI、商业、交互设计、个人成长、非主流视角等。我们珍视各位分享者的善意与勇气。</p>
+
+        <p>因此，为了维护社区氛围，我们谨建议各位不传播社区内讨论信息，少评判分享者表达。目前我们仅面向西交利物浦大学校园进行活动宣传。</p>
+
+        <p>Fun Workshop
+            支持中英双语环境。在原生支持语言翻译的环境（如，微信），我们发布的信息采用使用人数多的语言；在非原生支持语言翻译的环境，我们提供双语材料（如，海报），或实时语言翻译服务（如，在活动现场利用腾讯会议内置翻译功能）。
+        </p>
+
+        <p>对于线上会议，需要说明的是，Fun Workshop 并不保证所有活动都提供远程线上参与活动，这是出于包括话题敏感度在内的多种考量。</p>
+
+        <p>Fun Workshop 有计划在争得同意后采集、存储并编辑活动现场分享者的音视频数据，并经过明确确认后用于适度的传播分享。但我们不在未进行明确告知并获得明确授权前采集任何其他数据。</p>
+
+        <p>Fun Workshop 自愿采用西交利物浦大学学术伦理标准，公示相应文件，并欢迎各位监督。</p>
+
+        <p>Fun Workshop 已经搭建了网站用于长期信息共享。各类信息均将同步在微信群与网站发布。网站地址：<a
+                href="https://billshiyaozhang.github.io/fun-workshop/">https://billshiyaozhang.github.io/fun-workshop/</a>
+        </p>
+
+        <p>目前 Fun Workshop 仍是志愿运行。在我们鼓励各位加入运行团队的同时，也提醒慎重。</p>
+    </div>
+
+    <h2 class="lang-en">Organizers</h2>
+    <h2 class="lang-zh">组织者</h2>
+
+    <div class="lang-en">
+        <p>
+            Here&rsquo;s a good place to list the organizers and sponsors of the conference,
+            as well as list contact information for the organizers,
+            and show off the logos of the sponsors.
+            It looks like his conference was sponsored by kittens!
+        </p>
+    </div>
+    <div class="lang-zh">
+        <p>
+            这里是列举会议组织者和赞助商、提供组织者联系信息以及展示赞助商标志的好位置。
+            看起来这个会议是由小猫咪赞助的！
+        </p>
+    </div>
+
     <table class="sponsors">
         <tr>
             <td class="sponsor">
@@ -83,9 +241,9 @@
                 </a>
             </td>
             <td class="sponsor">
-                <a href="http://www.eyebleach.me/">
-                    <img src="assets/kitten2.jpg" alt="Second Sponsor Name" style="width: 80%">
-                </a>
+                <!-- <a href="http://www.eyebleach.me/"> -->
+                <img src="assets/cozy-logo.jpg" alt="Second Sponsor Name" style="width: 80%">
+                <!-- </a> -->
             </td>
             <td class="sponsor">
                 <a href="http://www.eyebleach.me/">
@@ -109,10 +267,12 @@
     </table>
 
     <footer>
-        &copy; Shiyao Zhang
-        &nbsp;|&nbsp; Template by <a href="https://github.com/mikepierce">Mike Pierce</a>
+        <span class="lang-en">&copy; Shiyao Zhang &nbsp;|&nbsp; Template by <a href="https://github.com/mikepierce">Mike
+                Pierce</a></span>
+        <span class="lang-zh">&copy; Shiyao Zhang &nbsp;|&nbsp; 模板来自 <a href="https://github.com/mikepierce">Mike
+                Pierce</a></span>
     </footer>
 
 </body>
-</html>
 
+</html>
