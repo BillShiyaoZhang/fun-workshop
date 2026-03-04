@@ -22,13 +22,13 @@
             display: none !important;
         }
 
-        /* SPA specific styles */
-        .page-content {
+        /* Loading indicator styles */
+        #loading-indicator {
             display: none;
-        }
-
-        .page-content.active {
-            display: block;
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+            color: #888;
         }
     </style>
     <script>
@@ -44,6 +44,54 @@
             }
         }
 
+        // Cache for loaded pages
+        const pageCache = {};
+
+        async function loadPageContent(pageId) {
+            const contentContainer = document.getElementById('main-content');
+            const loadingIndicator = document.getElementById('loading-indicator');
+
+            // If we already loaded this page, just use the cache
+            if (pageCache[pageId]) {
+                contentContainer.innerHTML = pageCache[pageId];
+                return;
+            }
+
+            // Show loading state and clear current content
+            contentContainer.innerHTML = '';
+            loadingIndicator.style.display = 'block';
+
+            try {
+                // Fetch the component HTML file
+                const response = await fetch(`components/${pageId}.html`);
+
+                if (!response.ok) {
+                    throw new Error(`Page not found: ${response.status}`);
+                }
+
+                const html = await response.text();
+
+                // Cache it and display it
+                pageCache[pageId] = html;
+                contentContainer.innerHTML = html;
+            } catch (error) {
+                console.error("Error loading page:", error);
+                contentContainer.innerHTML = `
+                    <div style="text-align:center; padding: 40px;">
+                        <span class="lang-en">Sorry, there was an error loading this page content.</span>
+                        <span class="lang-zh">抱歉，加载此页面内容时出错。</span>
+                    </div>
+                `;
+            } finally {
+                loadingIndicator.style.display = 'none';
+
+                // Trigger MathJax processing if there's any math on the newly loaded page
+                if (window.MathJax) {
+                    window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, contentContainer]);
+                }
+            }
+        }
+
         function handleHashChange() {
             let hash = window.location.hash || '#home';
             // Fallback for invalid hashes
@@ -52,23 +100,15 @@
             }
             const pageId = hash.substring(1);
 
-            // Hide all pages
-            document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
-
-            // Remove current class from all nav links
+            // Update nav link highlighting
             document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('current'));
-
-            // Show the target page
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
-
-            // Update nav link
             const targetLink = document.querySelector(`.nav-link[href="${hash}"]`);
             if (targetLink) {
                 targetLink.classList.add('current');
             }
+
+            // Dynamically load the content into the DOM
+            loadPageContent(pageId);
         }
 
         // Initialize language from localStorage if available
@@ -130,337 +170,13 @@
         </tr>
     </table>
 
-    <!-- HOME PAGE -->
-    <div id="home" class="page-content active">
-        <h2 class="lang-en">About this workshop</h2>
-        <h2 class="lang-zh">关于本坊</h2>
-
-        <div class="lang-en">
-            <p>
-                This is for fun! Share your interesting projects with others.
-                Meet new friends who share your interests.
-                Learn new skills and have a great time!
-            </p>
-            <p>Fun Workshop aims to provide sincere information and insights, so we plan to show full respect to the
-                speakers. We expect speakers to inform us of the materials they will use before the event, but we do not
-                restrict the speakers' self-determination for any factors other than legal awareness.</p>
-
-            <p>
-                We welcome participants from all backgrounds and skill levels.
-                Currently, the topics collected cover multiple fields, including AI, business, interaction design,
-                personal growth, non-mainstream perspectives, etc. We cherish the goodwill and courage of all speakers.
-            </p>
-
-            <p>Therefore, to maintain the community atmosphere, we sincerely suggest that everyone do not spread the
-                information discussed in the community, and less judge the speaker's expression. Currently, we only
-                promote activities on the Xi'an Jiaotong-Liverpool University campus.</p>
-
-            <p>
-                The workshop will be held at XJTLU, Suzhou, China from March to May, 2026.
-                Stay tuned for more details about the schedule in the <a href="#program"
-                    onclick="window.location.hash='#program'; return false;">Program</a> page.
-            </p>
-
-            <p>Fun Workshop supports a bilingual environment in Chinese and English. In environments that natively
-                support language translation (e.g., WeChat), the information we publish uses the language spoken by the
-                majority; in environments without native translation support, we provide bilingual materials (e.g.,
-                posters) or real-time language translation services (e.g., using the built-in translation function of
-                Tencent Meeting at the event).</p>
-
-            <p>For online meetings, it should be noted that Fun Workshop does not guarantee that remote online
-                participation is provided for all activities, due to various considerations including topic sensitivity.
-            </p>
-
-            <p>Fun Workshop plans to collect, store and edit audio and video data of speakers at the event site after
-                obtaining consent, and use it for appropriate dissemination and sharing after explicit confirmation.
-                However, we do not collect any other data before explicit notification and explicit authorization.</p>
-
-            <p>Fun Workshop voluntarily adopts the academic ethics standards of Xi'an Jiaotong-Liverpool University,
-                publishes the corresponding documents, and welcomes everyone's supervision.</p>
-
-            <p>Fun Workshop has set up a website for long-term information sharing. All kinds of information will be
-                posted simultaneously in the WeChat group and on the website. Website address: <a
-                    href="https://billshiyaozhang.github.io/fun-workshop/">https://billshiyaozhang.github.io/fun-workshop/</a>
-            </p>
-
-            <p>Currently, Fun Workshop is still running on a volunteer basis. While we encourage everyone to join the
-                operation team, we also remind you to be cautious.</p>
-
-            <p>
-                For any questions, please contact the coordinator Shiyao Zhang at <a
-                    href="mailto:shiyao.zhang14@student.xjtlu.edu.cn">shiyao.zhang14@student.xjtlu.edu.cn</a>.
-            </p>
-        </div>
-
-        <div class="lang-zh">
-            <p>
-                这就是为了好玩！与他人分享你有趣的项目。结识志同道合的新朋友。学习新技能，度过一段美好的时光！
-            </p>
-            <p>Fun Workshop 旨在提供诚恳的信息与见解，因此我们计划为分享者表示充分的尊重。我们期待分享者在活动前知会其将使用的材料，但我们不因除法律自觉外的其他因素限制分享者的自决。</p>
-
-            <p>
-                我们欢迎所有背景和技能水平的参与者。
-                目前，已征集到的分享话题囊括多个领域，AI、商业、交互设计、个人成长、非主流视角等。我们珍视各位分享者的善意与勇气。
-            </p>
-
-            <p>因此，为了维护社区氛围，我们谨建议各位不传播社区内讨论信息，少评判分享者表达。目前我们仅面向西交利物浦大学校园进行活动宣传。</p>
-
-            <p>
-                本工作坊将于 2026 年 3 月至 5 月在中国苏州的西交利物浦大学举行。
-                请关注<a href="#program"
-                    onclick="window.location.hash='#program'; return false;">日程（Program）</a>页面以获取更多详细信息。
-            </p>
-
-            <p>Fun Workshop
-                支持中英双语环境。在原生支持语言翻译的环境（如，微信），我们发布的信息采用使用人数多的语言；在非原生支持语言翻译的环境，我们提供双语材料（如，海报），或实时语言翻译服务（如，在活动现场利用腾讯会议内置翻译功能）。
-            </p>
-
-            <p>对于线上会议，需要说明的是，Fun Workshop 并不保证所有活动都提供远程线上参与活动，这是出于包括话题敏感度在内的多种考量。</p>
-
-            <p>Fun Workshop 有计划在争得同意后采集、存储并编辑活动现场分享者的音视频数据，并经过明确确认后用于适度的传播分享。但我们不在未进行明确告知并获得明确授权前采集任何其他数据。</p>
-
-            <p>Fun Workshop 自愿采用西交利物浦大学学术伦理标准，公示相应文件，并欢迎各位监督。</p>
-
-            <p>Fun Workshop 已经搭建了网站用于长期信息共享。各类信息均将同步在微信群与网站发布。网站地址：<a
-                    href="https://billshiyaozhang.github.io/fun-workshop/">https://billshiyaozhang.github.io/fun-workshop/</a>
-            </p>
-
-            <p>目前 Fun Workshop 仍是志愿运行。在我们鼓励各位加入运行团队的同时，也提醒慎重。</p>
-
-            <p>
-                如有任何问题，请联系协调人 Shiyao Zhang：<a
-                    href="mailto:shiyao.zhang14@student.xjtlu.edu.cn">shiyao.zhang14@student.xjtlu.edu.cn</a>。
-            </p>
-        </div>
-
-        <h2 class="lang-en">Organizers</h2>
-        <h2 class="lang-zh">组织者</h2>
-
-        <div class="lang-en">
-            <p>
-                Here&rsquo;s a good place to list the organizers and sponsors of the conference,
-                as well as list contact information for the organizers,
-                and show off the logos of the sponsors.
-                It looks like his conference was sponsored by kittens!
-            </p>
-        </div>
-        <div class="lang-zh">
-            <p>
-                这里是列举会议组织者和赞助商、提供组织者联系信息以及展示赞助商标志的好位置。
-                看起来这个会议是由小猫咪赞助的！
-            </p>
-        </div>
-
-        <table class="sponsors">
-            <tr>
-                <td class="sponsor">
-                    <a href="https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/">
-                        <img src="assets/kitten1.jpg" alt="Unofficial Guide for XJTLU PGRS">
-                    </a>
-                </td>
-                <td class="sponsor">
-                    <img src="assets/cozy-logo.jpg" alt="Second Sponsor Name" style="width: 80%">
-                </td>
-                <td class="sponsor">
-                    <img src="assets/sentio-logo.jpeg" alt="Third Sponsor Name">
-                </td>
-            </tr>
-            <tr>
-                <td class="sponsor">
-                    <a href="https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/">
-                        Unofficial Guide for XJTLU PGRS
-                    </a>
-                </td>
-                <td class="sponsor">
-                    Cozy Coffee
-                </td>
-                <td class="sponsor">
-                    SentioKlub
-                </td>
-            </tr>
-        </table>
+    <div id="loading-indicator">
+        Loading...
     </div>
 
-    <!-- PROGRAM PAGE -->
-    <div id="program" class="page-content">
-        <h2 class="lang-en">Workshop Program</h2>
-        <h2 class="lang-zh">工作坊日程</h2>
-
-        <table id="Shiyao Zhang">
-            <tr>
-                <td class="date" rowspan="3">
-                    <span class="lang-en">Week 2</span>
-                    <span class="lang-zh">第 2 周</span>
-                </td>
-                <td class="title">
-                    Vision of MAS in our life
-                </td>
-            </tr>
-            <tr>
-                <td class="speaker">
-                    Shiyao Zhang
-                </td>
-            </tr>
-            <tr>
-                <td class="abstract">
-                    <span class="lang-en">Here&rsquo;s an abstract.</span>
-                    <span class="lang-zh">这是摘要。</span>
-                </td>
-            </tr>
-        </table>
-
-        <table id="Yuexin Li">
-            <tr>
-                <td class="date" rowspan="3">
-                    <span class="lang-en">Week 3</span>
-                    <span class="lang-zh">第 3 周</span>
-                </td>
-                <td class="title">
-                    Vision and path on the project
-                </td>
-            </tr>
-            <tr>
-                <td class="speaker">
-                    Yuexin Li
-                </td>
-            </tr>
-            <tr>
-                <td class="abstract">
-                    <span class="lang-en">Here&rsquo;s an abstract.</span>
-                    <span class="lang-zh">这是摘要。</span>
-                </td>
-            </tr>
-        </table>
-
-        <h2 class="lang-en">Agreed Presenters and Topics</h2>
-        <h2 class="lang-zh">确认的演讲者与主题</h2>
-
-        <table id="Zitian Peng, Yuting Zheng">
-            <tr>
-                <td class="date" rowspan="3"></td>
-                <td class="title">
-                    Thoughts on ADHD
-                </td>
-            </tr>
-            <tr>
-                <td class="speaker">
-                    Zitian Peng, Yuting Zheng
-                </td>
-            </tr>
-            <tr>
-                <td class="abstract">
-                    <span class="lang-en">Here&rsquo;s an abstract.</span>
-                    <span class="lang-zh">这是摘要。</span>
-                </td>
-            </tr>
-        </table>
-
-        <table id="Siqi Liu, Shiyao Zhang">
-            <tr>
-                <td class="date" rowspan="3"></td>
-                <td class="title">
-                    小朋友 & 成人，谎言给我们力量
-                </td>
-            </tr>
-            <tr>
-                <td class="speaker">
-                    Siqi Liu, Shiyao Zhang
-                </td>
-            </tr>
-            <tr>
-                <td class="abstract">
-                    <span class="lang-en">Here&rsquo;s an abstract.</span>
-                    <span class="lang-zh">这是摘要。</span>
-                </td>
-            </tr>
-        </table>
-
-        <table id="Yajing Liu">
-            <tr>
-                <td class="date" rowspan="3"></td>
-                <td class="title">
-                    Story around 花甲部落
-                </td>
-            </tr>
-            <tr>
-                <td class="speaker">
-                    Yajing Liu
-                </td>
-            </tr>
-            <tr>
-                <td class="abstract">
-                    <span class="lang-en">Here&rsquo;s an abstract.</span>
-                    <span class="lang-zh">这是摘要。</span>
-                </td>
-            </tr>
-        </table>
-
-        <table id="Bingqing Chen">
-            <tr>
-                <td class="date" rowspan="3"></td>
-                <td class="title">
-                    LLM interaction, art activity
-                </td>
-            </tr>
-            <tr>
-                <td class="speaker">
-                    Bingqing Chen
-                </td>
-            </tr>
-            <tr>
-                <td class="abstract">
-                    <span class="lang-en">Here&rsquo;s an abstract.</span>
-                    <span class="lang-zh">这是摘要。</span>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- DIRECTIONS PAGE -->
-    <div id="directions" class="page-content">
-        <h2 class="lang-en">Directions</h2>
-        <h2 class="lang-zh">交通指南</h2>
-
-        <p>
-            <span class="lang-en">Cozy Coffee: Ground floor, E building, XJTLU TC Campus</span>
-            <span class="lang-zh">Cozy Coffee: 西浦太仓校区 E栋 一楼</span>
-            (<a href="https://j.map.baidu.com/04/2tUk">
-                <span class="lang-en">Baidu Map</span>
-                <span class="lang-zh">百度地图</span>
-            </a>)
-        </p>
-
-        <img class="center" src="assets/cozy-map.png" alt="Screenshot of Cozy Coffee location" id="map">
-
-        <p>
-            <span class="lang-en">Image guide to Cozy Coffee below:</span>
-            <span class="lang-zh">前往 Cozy Coffee 的图片指南如下：</span>
-        </p>
-        <img class="center" src="assets/kitten4.jpg" alt="This is just a kitten right now" id="kitten">
-    </div>
-
-    <!-- FLYER PAGE -->
-    <div id="flyer" class="page-content">
-        <br>
-        <p>
-            <span class="lang-en">Click on the flyer below to download a pdf.</span>
-            <span class="lang-zh">点击下方海报下载 PDF 版本。</span>
-        </p>
-
-        <table class="flyers">
-            <tr>
-                <td class="flyer">
-                    <a href="assets/Fun_Workshop-01-poster-CN.pdf">
-                        <img src="assets/Fun_Workshop-01-poster-CN.png" alt="Fun Workshop 01 CN" style="width:80%">
-                    </a>
-                </td>
-                <td class="flyer">
-                    <a href="assets/Fun_Workshop-01-poster-EN.pdf">
-                        <img src="assets/Fun_Workshop-01-poster-EN.png" alt="Fun Workshop 01 EN" style="width:80%">
-                    </a>
-                </td>
-            </tr>
-        </table>
+    <!-- Dynamic Content Target -->
+    <div id="main-content" class="page-content active">
+        <!-- Content will be injected here via JavaScript fetch API -->
     </div>
 
     <footer>
