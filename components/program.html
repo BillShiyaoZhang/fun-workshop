@@ -47,10 +47,10 @@
             </div>
             {% endif %}
 
-            {% if not item.abstract_en and not item.resources %}
+            {% unless item.abstract_en or item.resources %}
             <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
             <span class="lang-zh">这是摘要。</span> -->
-            {% endif %}
+            {% endunless %}
         </td>
     </tr>
 </table>
