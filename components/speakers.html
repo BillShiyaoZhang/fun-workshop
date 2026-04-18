@@ -1,3 +1,5 @@
+---
+---
 <h2 class="lang-en">Workshop Speakers</h2>
 <h2 class="lang-zh">工作坊分享者</h2>
 
@@ -51,244 +53,50 @@
     }
 </style>
 
-<!-- Shiyao Zhang -->
-<table id="shiyao-zhang" class="speaker-profile">
+{% for speaker in site.data.speakers %}
+<table id="{{ speaker.id }}" class="speaker-profile">
     <tr>
         <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Shiyao Zhang" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
+            <img src="assets/speakers/placeholder.png" alt="{{ speaker.name }}" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
         </td>
         <td class="info-cell">
-            <div class="speaker-name">Shiyao Zhang</div>
-            <div class="speaker-contact">PhD student</div>
+            <div class="speaker-name">{{ speaker.name }}</div>
+            <div class="speaker-contact">{{ speaker.title }}</div>
             <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
+                <span class="lang-en">{{ speaker.bio_en }}</span>
+                <span class="lang-zh">{{ speaker.bio_zh }}</span>
             </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-mar10">
-                        <span class="lang-en">Vision of MAS in our life (March 10)</span>
-                        <span class="lang-zh">Vision of MAS in our life (3月10日)</span>
-                    </a></li>
-                    <li><a href="#program?id=wkshp-mar24">
-                        <span class="lang-en">蛐蛐一下科研 (March 24)</span>
-                        <span class="lang-zh">蛐蛐一下科研 (3月24日)</span>
-                    </a></li>
-                    <li><a href="#program?id=wkshp-apr14">
-                        <span class="lang-en">小朋友 & 成人，谎言给我们力量 (April 14)</span>
-                        <span class="lang-zh">小朋友 & 成人，谎言给我们力量 (4月14日)</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
+            
+            {% assign participated = "" | split: "," %}
+            {% for item in site.data.program_confirmed %}
+                {% for sp in item.speakers %}
+                    {% if sp.id == speaker.id %}
+                        {% assign participated = participated | push: item %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+            {% for item in site.data.program_tbc %}
+                {% for sp in item.speakers %}
+                    {% if sp.id == speaker.id %}
+                        {% assign participated = participated | push: item %}
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
 
-<!-- Siqi Liu -->
-<table id="siqi-liu" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Siqi Liu" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Siqi Liu</div>
-            <div class="speaker-contact">PhD student</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
+            {% if participated.size > 0 %}
             <div class="participated-workshops">
                 <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
                 <ul>
-                    <li><a href="#program?id=wkshp-apr14">
-                        <span class="lang-en">小朋友 & 成人，谎言给我们力量 (April 14)</span>
-                        <span class="lang-zh">小朋友 & 成人，谎言给我们力量 (4月14日)</span>
+                    {% for item in participated %}
+                    <li><a href="#program?id={{ item.id }}">
+                        <span class="lang-en">{{ item.title }}{% if item.date_en %} ({{ item.date_en }}){% endif %}</span>
+                        <span class="lang-zh">{{ item.title }}{% if item.date_zh %} ({{ item.date_zh }}){% endif %}</span>
                     </a></li>
+                    {% endfor %}
                 </ul>
             </div>
+            {% endif %}
         </td>
     </tr>
 </table>
-
-<!-- Zitian Peng -->
-<table id="zitian-peng" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Zitian Peng" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Zitian Peng</div>
-            <div class="speaker-contact">PhD student</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-apr28">
-                        <span class="lang-en">Thoughts on procrastination (April 28)</span>
-                        <span class="lang-zh">Thoughts on procrastination (4月28日)</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
-
-<!-- Yuting Zheng -->
-<table id="yuting-zheng" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Yuting Zheng" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Yuting Zheng</div>
-            <div class="speaker-contact">PhD student</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-apr28">
-                        <span class="lang-en">Thoughts on procrastination (April 28)</span>
-                        <span class="lang-zh">Thoughts on procrastination (4月28日)</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
-
-<!-- Yajing Liu -->
-<table id="yajing-liu" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Yajing Liu" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Yajing Liu</div>
-            <div class="speaker-contact">PhD student</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-may11">
-                        <span class="lang-en">Story around 花甲部落 (May 11)</span>
-                        <span class="lang-zh">Story around 花甲部落 (5月11日)</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
-
-<!-- Zonghan Li -->
-<table id="zonghan-li" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Zonghan Li" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Zonghan Li</div>
-            <div class="speaker-contact">Founder of Swigger, Graduated from IOT School</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-w12">
-                        <span class="lang-en">Swigger 的创业故事 (Week 12 or 13)</span>
-                        <span class="lang-zh">Swigger 的创业故事 (第 12 或 13 周)</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
-
-<!-- Bingqing Chen -->
-<table id="bingqing-chen" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Bingqing Chen" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Bingqing Chen</div>
-            <div class="speaker-contact">PhD student</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-tbc">
-                        <span class="lang-en">LLM interaction, art activity</span>
-                        <span class="lang-zh">LLM interaction, art activity</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
-
-<!-- Yuexin Li -->
-<table id="yuexin-li" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Yuexin Li" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Yuexin Li</div>
-            <div class="speaker-contact">Founder of Sentio, student of IOT School</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-yuexin-li">
-                        <span class="lang-en">Vision and path on the project</span>
-                        <span class="lang-zh">Vision and path on the project</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
-
-<!-- Yixiang Xu -->
-<table id="yixiang-xu" class="speaker-profile">
-    <tr>
-        <td class="photo-cell">
-            <img src="assets/speakers/placeholder.png" alt="Yixiang Xu" class="speaker-photo" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22150%22%20height%3D%22150%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20150%20150%22%3E%3Crect%20width%3D%22150%22%20height%3D%22150%22%20fill%3D%22%23e0e0e0%22%2F%3E%3Cpath%20d%3D%22M75%2080c13.8%200%2025-11.2%2025-25S88.8%2030%2075%2030s-25%2011.2-25%2025%2011.2%2025%2025%2025zm0%2010c-16.7%200-50%208.3-50%2025v15h100v-15c0-16.7-33.3-25-50-25z%22%20fill%3D%22%239e9e9e%22%2F%3E%3C%2Fsvg%3E'">
-        </td>
-        <td class="info-cell">
-            <div class="speaker-name">Yixiang Xu</div>
-            <div class="speaker-contact">Founder of SurferGarage, student of AIAC School</div>
-            <div class="speaker-bio">
-                <span class="lang-en">Biography coming soon.</span>
-                <span class="lang-zh">简介完善中。</span>
-            </div>
-            <div class="participated-workshops">
-                <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
-                <ul>
-                    <li><a href="#program?id=wkshp-yixiang-xu">
-                        <span class="lang-en">Story around SurferGarage</span>
-                        <span class="lang-zh">Story around SurferGarage</span>
-                    </a></li>
-                </ul>
-            </div>
-        </td>
-    </tr>
-</table>
+{% endfor %}

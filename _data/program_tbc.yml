@@ -1,0 +1,20 @@
+- id: wkshp-tbc
+  title: LLM interaction, art activity
+  speakers:
+    - id: bingqing-chen
+      name: Bingqing Chen
+      title: PhD student
+
+- id: wkshp-yuexin-li
+  title: Vision and path on the project
+  speakers:
+    - id: yuexin-li
+      name: Yuexin Li
+      title: Founder of Sentio, student of IOT School
+
+- id: wkshp-yixiang-xu
+  title: Story around SurferGarage
+  speakers:
+    - id: yixiang-xu
+      name: Yixiang Xu
+      title: Founder of SurferGarage, student of AIAC School

@@ -1,195 +1,68 @@
+---
+---
 <h2 class="lang-en">Workshop Program</h2>
 <h2 class="lang-zh">工作坊日程</h2>
 
-<table id="wkshp-mar10">
+{% for item in site.data.program_confirmed %}
+<table id="{{ item.id }}">
     <tr>
         <td class="date" rowspan="3">
-            <span class="lang-en">March 10</span>
-            <span class="lang-zh">3月10日</span>
+            <span class="lang-en">{{ item.date_en }}</span>
+            <span class="lang-zh">{{ item.date_zh }}</span>
         </td>
         <td class="title">
-            Vision of MAS in our life
+            {{ item.title }}
         </td>
     </tr>
     <tr>
         <td class="speaker">
-            <a href="#speakers?id=shiyao-zhang">Shiyao Zhang</a>, PhD student
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
-            <span class="lang-en"><a href="https://www.bilibili.com/video/BV1rvcozUECx/?share_source=copy_web&vd_source=75e254b62d77146e4012dd5be0c0bf32" target="_blank">Video recording on bilibili</a></span>
-            <span class="lang-zh"><a href="https://www.bilibili.com/video/BV1rvcozUECx/?share_source=copy_web&vd_source=75e254b62d77146e4012dd5be0c0bf32" target="_blank">现场视频</a></span>
-        </td>
-    </tr>
-</table>
-
-<table id="wkshp-mar24">
-    <tr>
-        <td class="date" rowspan="3">
-            <span class="lang-en">March 24</span>
-            <span class="lang-zh">3月24日</span>
-        </td>
-        <td class="title">
-            蛐蛐一下科研
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
-            <a href="#speakers?id=shiyao-zhang">Shiyao Zhang</a>, PhD student
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
-
-        </td>
-    </tr>
-</table>
-
-<table id="wkshp-apr14">
-    <tr>
-        <td class="date" rowspan="3">
-            <span class="lang-en">April 14</span>
-            <span class="lang-zh">4月14号</span>
-        </td>
-        <td class="title">
-            小朋友 & 成人，谎言给我们力量
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
+            {% for speaker in item.speakers %}
             <p>
-                <a href="#speakers?id=siqi-liu">Siqi Liu</a>, PhD student
+                {% if speaker.id %}
+                <a href="#speakers?id={{ speaker.id }}">{{ speaker.name }}</a>, {{ speaker.title }}
+                {% else %}
+                {{ speaker.name }}
+                {% endif %}
             </p>
-            <p>
-                <a href="#speakers?id=shiyao-zhang">Shiyao Zhang</a>, PhD student
-            </p>
+            {% endfor %}
         </td>
     </tr>
     <tr>
         <td class="abstract">
-            <span class="lang-en"><a href="https://mp.weixin.qq.com/s/JK7RtVUUZ0z4YCU5zn4o4g" target="_blank">Podcast in Chinese</a></span>
-            <span class="lang-zh"><a href="https://mp.weixin.qq.com/s/JK7RtVUUZ0z4YCU5zn4o4g" target="_blank">播客</a></span>
-        </td>
-    </tr>
-</table>
-
-<table id="wkshp-apr23">
-    <tr>
-        <td class="date" rowspan="3">
-            <span class="lang-en">14:00 - 15:00, April 23</span>
-            <span class="lang-zh">4月23号 14:00 - 15:00</span>
-        </td>
-        <td class="title">
-            TBD
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
-            Professor from physics school, Northwest University
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
+            {% if item.abstract_en %}
+            <span class="lang-en">{{ item.abstract_en }}</span>
+            <span class="lang-zh">{{ item.abstract_zh }}</span>
+            {% else %}
             <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
             <span class="lang-zh">这是摘要。</span> -->
+            {% endif %}
         </td>
     </tr>
 </table>
-
-<table id="wkshp-apr28">
-    <tr>
-        <td class="date" rowspan="3">
-            <span class="lang-en">13:00 - 15:00, April 28</span>
-            <span class="lang-zh">4月28号 13:00 - 15:00</span>
-        </td>
-        <td class="title">
-            Thoughts on procrastination
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
-            <p>
-                <a href="#speakers?id=zitian-peng">Zitian Peng</a>, PhD student
-            </p>
-            <p>
-                <a href="#speakers?id=yuting-zheng">Yuting Zheng</a>, PhD student
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
-            <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
-            <span class="lang-zh">这是摘要。</span> -->
-        </td>
-    </tr>
-</table>
-
-<table id="wkshp-may11">
-    <tr>
-        <td class="date" rowspan="3">
-            <span class="lang-en">16:00 - 18:00, May 11</span>
-            <span class="lang-zh">5月11号 16:00 - 18:00</span>
-        </td>
-        <td class="title">
-            Story around 花甲部落
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
-            <p>
-                <a href="#speakers?id=yajing-liu">Yajing Liu</a>, PhD student
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
-            <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
-            <span class="lang-zh">这是摘要。</span> -->
-        </td>
-    </tr>
-</table>
-
-<table id="wkshp-w12">
-    <tr>
-        <td class="date" rowspan="3">
-            <span class="lang-en">Week 12 or 13</span>
-            <span class="lang-zh">第 12 或 13 周</span>
-        </td>
-        <td class="title">
-            Swigger 的创业故事
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
-            <p>
-                <a href="#speakers?id=zonghan-li">Zonghan Li</a>, Founder of Swigger, Graduated from IOT School
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
-            <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
-            <span class="lang-zh">这是摘要。</span> -->
-        </td>
-    </tr>
-</table>
+{% endfor %}
 
 <h2 class="lang-en">Agreed Presenters and Topics</h2>
 <h2 class="lang-zh">确认的演讲者与主题</h2>
 
-<table id="wkshp-tbc">
+{% for item in site.data.program_tbc %}
+<table id="{{ item.id }}">
     <tr>
         <td class="date" rowspan="3"></td>
         <td class="title">
-            LLM interaction, art activity
+            {{ item.title }}
         </td>
     </tr>
     <tr>
         <td class="speaker">
+            {% for speaker in item.speakers %}
             <p>
-                <a href="#speakers?id=bingqing-chen">Bingqing Chen</a>, PhD student
+                {% if speaker.id %}
+                <a href="#speakers?id={{ speaker.id }}">{{ speaker.name }}</a>, {{ speaker.title }}
+                {% else %}
+                {{ speaker.name }}
+                {% endif %}
             </p>
+            {% endfor %}
         </td>
     </tr>
     <tr>
@@ -199,51 +72,4 @@
         </td>
     </tr>
 </table>
-
-<table id="wkshp-yuexin-li">
-    <tr>
-        <td class="date" rowspan="3">
-
-        </td>
-        <td class="title">
-            Vision and path on the project
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
-            <p>
-                <a href="#speakers?id=yuexin-li">Yuexin Li</a>, Founder of Sentio, student of IOT School
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
-            <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
-            <span class="lang-zh">这是摘要。</span> -->
-        </td>
-    </tr>
-</table>
-
-<table id="wkshp-yixiang-xu">
-    <tr>
-        <td class="date" rowspan="3">
-
-        </td>
-        <td class="title">
-            Story around SurferGarage
-        </td>
-    </tr>
-    <tr>
-        <td class="speaker">
-            <p>
-                <a href="#speakers?id=yixiang-xu">Yixiang Xu</a>, Founder of SurferGarage, student of AIAC School
-            </p>
-        </td>
-    </tr>
-    <tr>
-        <td class="abstract">
-            <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
-            <span class="lang-zh">这是摘要。</span> -->
-        </td>
-    </tr>
-</table>
+{% endfor %}
