@@ -6,8 +6,12 @@
     - id: shiyao-zhang
       name: Shiyao Zhang
       title: PhD student
-  abstract_en: <a href="https://www.bilibili.com/video/BV1rvcozUECx/?share_source=copy_web&vd_source=75e254b62d77146e4012dd5be0c0bf32" target="_blank">Video recording on bilibili</a>
-  abstract_zh: <a href="https://www.bilibili.com/video/BV1rvcozUECx/?share_source=copy_web&vd_source=75e254b62d77146e4012dd5be0c0bf32" target="_blank">现场视频</a>
+  abstract_en: 
+  abstract_zh: 
+  resources:
+    - name_en: Video recording on bilibili
+      name_zh: 现场视频
+      url: https://www.bilibili.com/video/BV1rvcozUECx/?share_source=copy_web&vd_source=75e254b62d77146e4012dd5be0c0bf32
 
 - id: wkshp-mar24
   date_en: March 24
@@ -31,8 +35,12 @@
     - id: shiyao-zhang
       name: Shiyao Zhang
       title: PhD student
-  abstract_en: <a href="https://mp.weixin.qq.com/s/JK7RtVUUZ0z4YCU5zn4o4g" target="_blank">Podcast in Chinese</a>
-  abstract_zh: <a href="https://mp.weixin.qq.com/s/JK7RtVUUZ0z4YCU5zn4o4g" target="_blank">播客</a>
+  abstract_zh: 
+  abstract_en: 
+  resources:
+    - name_en: Podcast in Chinese
+      name_zh: 播客
+      url: https://mp.weixin.qq.com/s/JK7RtVUUZ0z4YCU5zn4o4g
 
 - id: wkshp-apr23
   date_en: 14:00 - 15:00, April 23

@@ -88,10 +88,22 @@
                 <strong><span class="lang-en">Participated Workshops:</span><span class="lang-zh">参与过的工作坊活动：</span></strong>
                 <ul>
                     {% for item in participated %}
-                    <li><a href="#program?id={{ item.id }}">
-                        <span class="lang-en">{{ item.title }}{% if item.date_en %} ({{ item.date_en }}){% endif %}</span>
-                        <span class="lang-zh">{{ item.title }}{% if item.date_zh %} ({{ item.date_zh }}){% endif %}</span>
-                    </a></li>
+                    <li>
+                        <a href="#program?id={{ item.id }}">
+                            <span class="lang-en">{{ item.title }}{% if item.date_en %} ({{ item.date_en }}){% endif %}</span>
+                            <span class="lang-zh">{{ item.title }}{% if item.date_zh %} ({{ item.date_zh }}){% endif %}</span>
+                        </a>
+                        {% if item.resources %}
+                        <span class="speaker-resources" style="font-size: 0.9em; margin-left: 10px;">
+                            {% for res in item.resources %}
+                            <a href="{{ res.url }}" target="_blank" style="color: #52739e; text-decoration: none;">
+                                <span class="lang-en">[ {{ res.name_en }} ]</span>
+                                <span class="lang-zh">[ {{ res.name_zh }} ]</span>
+                            </a>
+                            {% endfor %}
+                        </span>
+                        {% endif %}
+                    </li>
                     {% endfor %}
                 </ul>
             </div>
