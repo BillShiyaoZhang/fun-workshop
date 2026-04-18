@@ -4,8 +4,6 @@
   title: Vision of MAS in our life
   speakers:
     - id: shiyao-zhang
-      name: Shiyao Zhang
-      title: PhD student
   abstract_en: 
   abstract_zh: 
   resources:
@@ -19,8 +17,6 @@
   title: 蛐蛐一下科研
   speakers:
     - id: shiyao-zhang
-      name: Shiyao Zhang
-      title: PhD student
   abstract_en: 
   abstract_zh: 
 
@@ -30,11 +26,7 @@
   title: 小朋友 & 成人，谎言给我们力量
   speakers:
     - id: siqi
-      name: Siqi
-      title: PhD student
     - id: shiyao-zhang
-      name: Shiyao Zhang
-      title: PhD student
   abstract_zh: 
   abstract_en: 
   resources:
@@ -57,11 +49,7 @@
   title: Thoughts on procrastination
   speakers:
     - id: zitian-peng
-      name: Zitian Peng
-      title: PhD student
     - id: yuting-zheng
-      name: Yuting Zheng
-      title: PhD student
   abstract_en: 
   abstract_zh: 
 
@@ -71,8 +59,6 @@
   title: Story around 花甲部落
   speakers:
     - id: yajing-liu
-      name: Yajing Liu
-      title: PhD student
   abstract_en: 
   abstract_zh: 
 
@@ -82,7 +68,5 @@
   title: Swigger 的创业故事
   speakers:
     - id: zonghan-li
-      name: Zonghan Li
-      title: Founder of Swigger, Graduated from IOT School
   abstract_en: 
   abstract_zh:

@@ -19,7 +19,8 @@
             {% for speaker in item.speakers %}
             <p>
                 {% if speaker.id %}
-                <a href="#speakers?id={{ speaker.id }}">{{ speaker.name }}</a>, {{ speaker.title }}
+                {% assign s = site.data.speakers | where: "id", speaker.id | first %}
+                <a href="#speakers?id={{ s.id }}">{{ s.name }}</a>, {{ s.title }}
                 {% else %}
                 {{ speaker.name }}
                 {% endif %}
@@ -72,7 +73,8 @@
             {% for speaker in item.speakers %}
             <p>
                 {% if speaker.id %}
-                <a href="#speakers?id={{ speaker.id }}">{{ speaker.name }}</a>, {{ speaker.title }}
+                {% assign s = site.data.speakers | where: "id", speaker.id | first %}
+                <a href="#speakers?id={{ s.id }}">{{ s.name }}</a>, {{ s.title }}
                 {% else %}
                 {{ speaker.name }}
                 {% endif %}
