@@ -1,7 +1,7 @@
 - id: wkshp-mar10
   date_en: March 10
   date_zh: 3月10日
-  title: Vision of MAS in our life
+  title: OpenClaw and agents for us
   speakers:
     - id: shiyao-zhang
   abstract_en: 
@@ -17,6 +17,7 @@
   title: 蛐蛐一下科研
   speakers:
     - id: shiyao-zhang
+    - id: zitian-peng
   abstract_en: 
   abstract_zh: 
 
