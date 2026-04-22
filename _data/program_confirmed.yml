@@ -36,14 +36,14 @@
   speakers:
     - id: siqi
     - id: shiyao-zhang
-  abstract_zh: assets/posters/Fun_Workshop-03-poster-CN.jpg
-  abstract_en: assets/posters/Fun_Workshop-03-poster-EN.jpg
+  abstract_zh: 
+  abstract_en: 
   resources:
     - name_en: Podcast in Chinese
       name_zh: 播客
       url: https://mp.weixin.qq.com/s/JK7RtVUUZ0z4YCU5zn4o4g
-  poster_en: 
-  poster_zh: 
+  poster_en: assets/posters/Fun_Workshop-03-poster-EN.jpg
+  poster_zh: assets/posters/Fun_Workshop-03-poster-CN.jpg
 
 - id: wkshp-apr23
   date_en: 14:00 - 15:00, April 23
