@@ -90,8 +90,8 @@
                     {% for item in participated %}
                     <li>
                         <a href="#program?id={{ item.id }}">
-                            <span class="lang-en">{{ item.title }}{% if item.date_en %} ({{ item.date_en }}){% endif %}</span>
-                            <span class="lang-zh">{{ item.title }}{% if item.date_zh %} ({{ item.date_zh }}){% endif %}</span>
+                            <span class="lang-en">{{ item.title_en }}{% if item.date_en %} ({{ item.date_en }}){% endif %}</span>
+                            <span class="lang-zh">{{ item.title_zh }}{% if item.date_zh %} ({{ item.date_zh }}){% endif %}</span>
                         </a>
                         {% if item.resources %}
                         <span class="speaker-resources" style="font-size: 0.9em; margin-left: 10px;">
