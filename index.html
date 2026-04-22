@@ -93,14 +93,14 @@
         }
 
         function handleHashChange() {
-            let hash = window.location.hash || '#home';
+            let hash = window.location.hash || '#program';
             let baseHash = hash.split('?')[0];
             let targetId = hash.split('?id=')[1];
 
             // Fallback for invalid hashes
             if (!['#home', '#program', '#speakers', '#directions', '#flyer', '#join'].includes(baseHash)) {
-                baseHash = '#home';
-                hash = '#home';
+                baseHash = '#program';
+                hash = '#program';
             }
             const pageId = baseHash.substring(1);
 
