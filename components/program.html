@@ -7,8 +7,8 @@
 <table id="{{ item.id }}">
     <tr>
         <td class="date" rowspan="3">
-            <span class="lang-en">{{ item.date_en }}</span>
-            <span class="lang-zh">{{ item.date_zh }}</span>
+            <span class="lang-en">{{ item.date_en | newline_to_br }}</span>
+            <span class="lang-zh">{{ item.date_zh | newline_to_br }}</span>
             
             {% if item.poster_en or item.poster_zh %}
             <div class="poster" style="margin-top: 15px;">
@@ -40,8 +40,8 @@
         <td class="abstract">
             {% if item.abstract_en and item.abstract_en != "" %}
             <div class="abstract-text">
-                <span class="lang-en">{{ item.abstract_en }}</span>
-                <span class="lang-zh">{{ item.abstract_zh }}</span>
+                <span class="lang-en">{{ item.abstract_en | newline_to_br }}</span>
+                <span class="lang-zh">{{ item.abstract_zh | newline_to_br }}</span>
             </div>
             {% endif %}
             
@@ -102,8 +102,8 @@
         <td class="abstract">
             {% if item.abstract_en and item.abstract_en != "" %}
             <div class="abstract-text">
-                <span class="lang-en">{{ item.abstract_en }}</span>
-                <span class="lang-zh">{{ item.abstract_zh }}</span>
+                <span class="lang-en">{{ item.abstract_en | newline_to_br }}</span>
+                <span class="lang-zh">{{ item.abstract_zh | newline_to_br }}</span>
             </div>
             {% endif %}
             

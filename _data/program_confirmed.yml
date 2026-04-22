@@ -46,21 +46,23 @@
   poster_zh: assets/posters/Fun_Workshop-03-poster-CN.jpg
 
 - id: wkshp-apr23
-  date_en: >
+  date_en: |
     14:00 - 15:00
     April 23
-  date_zh: >
+  date_zh: |
     4月23号
     14:00 - 15:00
   title_en: Black Holes and Their Thermodynamics
   title_zh: 黑洞和它的热力学
   speakers:
     - id: bin-wu
-  abstract_en: >
+  abstract_en: |
     Gravity is the earliest fundamental interaction that humans have perceived, yet it remains the most mysterious to this day. It shapes the motion of stars and weaves the fate of the universe. From Newton's universal gravitation to Einstein's spacetime dynamics, each profound understanding of gravity has been accompanied by revolutionary leaps in our cognition of the cosmos.
+    
     This talk will start from the mythological imagery of ancient cosmologies in both Eastern and Western cultures, reviewing how humanity transitioned from stargazing to the Big Bang cosmological model. Building on this foundation, the talk will focus on black holes, the most extreme products of gravity. They are not only "tears" in spacetime but also stages for gravitational physics, quantum mechanics, and thermodynamics. We will explore black hole horizons, singularities, and Hawking radiation, revealing how they possess temperature, entropy, and even evaporation outcomes. A brief introduction to the discovery of gravitational waves and their validation of black hole nature will also be included.
-  abstract_zh: >
+  abstract_zh: |
     引力是人类最早感知、却至今最感陌生的基本相互作用。它塑造了星辰的运行，也编织着宇宙的命运。从牛顿的万有引力到爱因斯坦的时空动力学，每一次对引力的深刻理解，都伴随着对宇宙认知的革命性跃升。
+    
     本报告将从东西方古老宇宙观的神话图景出发，回顾人类如何从仰望星空走向大爆炸宇宙模型。在此基础上，报告将聚焦引力最极致的产物——黑洞，它不仅是时空的“裂缝”，更是引力物理、量子力学和热力学的舞台。我们将探讨黑洞的视界、奇点与霍金辐射，揭示它如何拥有温度、熵乃至蒸发结局，同时简要介绍引力波的发现及其对黑洞本质的验证。
 
   poster_en: assets/posters/Fun_Workshop-04-poster-EN.jpg
