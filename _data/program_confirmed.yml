@@ -47,8 +47,8 @@
 
 - id: wkshp-apr23
   date_en: |
-    14:00 - 15:00
     April 23
+    14:00 - 15:00
   date_zh: |
     4月23号
     14:00 - 15:00
@@ -69,10 +69,10 @@
   poster_zh: assets/posters/Fun_Workshop-04-poster-CN.jpg
 
 - id: wkshp-apr28
-  date_en: >
-    13:00 - 15:00
+  date_en: |
     April 28
-  date_zh: >
+    13:00 - 15:00
+  date_zh: |
     4月28号
     13:00 - 15:00
   title_en: Thoughts on procrastination
@@ -86,10 +86,10 @@
   poster_zh: 
 
 - id: wkshp-may11
-  date_en: >
-    16:00 - 18:00
+  date_en: |
     May 11
-  date_zh: >
+    16:00 - 18:00
+  date_zh: |
     5月11号
     16:00 - 18:00
   title_en: Community for elders
