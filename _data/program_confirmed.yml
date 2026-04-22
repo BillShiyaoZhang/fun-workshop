@@ -1,7 +1,9 @@
+
 - id: wkshp-mar10
   date_en: March 10
   date_zh: 3月10日
-  title: OpenClaw and agents for us
+  title_en: OpenClaw and agents for us
+  title_zh: OpenClaw 
   speakers:
     - id: shiyao-zhang
   abstract_en: 
@@ -10,21 +12,27 @@
     - name_en: Video recording on bilibili
       name_zh: 现场视频
       url: https://www.bilibili.com/video/BV1rvcozUECx/?share_source=copy_web&vd_source=75e254b62d77146e4012dd5be0c0bf32
+  poster_en: 
+  poster_zh: 
 
 - id: wkshp-mar24
   date_en: March 24
   date_zh: 3月24日
-  title: 蛐蛐一下科研
+  title_en: Critiques on research
+  title_zh: 蛐蛐一下科研
   speakers:
     - id: shiyao-zhang
     - id: zitian-peng
   abstract_en: 
-  abstract_zh: 
+  abstract_zh:
+  poster_en: 
+  poster_zh: 
 
 - id: wkshp-apr14
   date_en: April 14
   date_zh: 4月14日
-  title: 小朋友 & 成人，谎言给我们力量
+  title_en: Lies provide strength
+  title_zh: 小朋友 & 成人，谎言给我们力量
   speakers:
     - id: siqi
     - id: shiyao-zhang
@@ -34,40 +42,54 @@
     - name_en: Podcast in Chinese
       name_zh: 播客
       url: https://mp.weixin.qq.com/s/JK7RtVUUZ0z4YCU5zn4o4g
+  poster_en: 
+  poster_zh: 
 
 - id: wkshp-apr23
   date_en: 14:00 - 15:00, April 23
   date_zh: 4月23号 14:00 - 15:00
-  title: TBD
+  title_en: Black Holes and Their Thermodynamics
+  title_zh: 黑洞和它的热力学
   speakers:
-    - name: Professor from physics school, Northwest University
+    - id: bin-wu
   abstract_en: 
-  abstract_zh: 
+  abstract_zh:
+  poster_en: 
+  poster_zh: 
 
 - id: wkshp-apr28
   date_en: 13:00 - 15:00, April 28
   date_zh: 4月28号 13:00 - 15:00
-  title: Thoughts on procrastination
+  title_en: Thoughts on procrastination
+  title_zh: 拖延症和一些实践
   speakers:
     - id: zitian-peng
     - id: yuting-zheng
   abstract_en: 
-  abstract_zh: 
+  abstract_zh:
+  poster_en: 
+  poster_zh: 
 
 - id: wkshp-may11
   date_en: 16:00 - 18:00, May 11
   date_zh: 5月11号 16:00 - 18:00
-  title: Story around 花甲部落
+  title_en: Community for elders
+  title_zh: 花甲部落
   speakers:
     - id: yajing-liu
   abstract_en: 
-  abstract_zh: 
+  abstract_zh:
+  poster_en: 
+  poster_zh: 
 
 - id: wkshp-w12
   date_en: Week 12 or 13
   date_zh: 第 12 或 13 周
-  title: Swigger 的创业故事
+  title_en: Business story of Swigar
+  title_zh: Swigar 的创业故事
   speakers:
     - id: zonghan-li
   abstract_en: 
   abstract_zh:
+  poster_en: 
+  poster_zh: 
