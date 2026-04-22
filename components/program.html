@@ -21,9 +21,9 @@
             <p>
                 {% if speaker.id %}
                 {% assign s = site.data.speakers | where: "id", speaker.id | first %}
-                <a href="#speakers?id={{ s.id }}">{{ s.name }}</a>, {{ s.title }}
+                <a href="#speakers?id={{ s.id }}"><span class="lang-en">{{ s.name_en }}</span><span class="lang-zh">{{ s.name_zh }}</span></a>, <span class="lang-en">{{ s.title_en }}</span><span class="lang-zh">{{ s.title_zh }}</span>
                 {% else %}
-                {{ speaker.name }}
+                <span class="lang-en">{{ speaker.name_en }}</span><span class="lang-zh">{{ speaker.name_zh }}</span>
                 {% endif %}
             </p>
             {% endfor %}
@@ -83,9 +83,9 @@
             <p>
                 {% if speaker.id %}
                 {% assign s = site.data.speakers | where: "id", speaker.id | first %}
-                <a href="#speakers?id={{ s.id }}">{{ s.name }}</a>, {{ s.title }}
+                <a href="#speakers?id={{ s.id }}"><span class="lang-en">{{ s.name_en }}</span><span class="lang-zh">{{ s.name_zh }}</span></a>, <span class="lang-en">{{ s.title_en }}</span><span class="lang-zh">{{ s.title_zh }}</span>
                 {% else %}
-                {{ speaker.name }}
+                <span class="lang-en">{{ speaker.name_en }}</span><span class="lang-zh">{{ speaker.name_zh }}</span>
                 {% endif %}
             </p>
             {% endfor %}
