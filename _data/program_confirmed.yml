@@ -46,12 +46,8 @@
   poster_zh: assets/posters/Fun_Workshop-03-poster-CN.jpg
 
 - id: wkshp-apr23
-  date_en: |
-    April 23
-    14:00 - 15:00
-  date_zh: |
-    4月23号
-    14:00 - 15:00
+  date_en: April 23
+  date_zh: 4月23号
   title_en: Black Holes and Their Thermodynamics
   title_zh: 黑洞和它的热力学
   speakers:
@@ -82,8 +78,8 @@
     - id: yuting-zheng
   abstract_en: 
   abstract_zh:
-  poster_en: 
-  poster_zh: 
+  poster_en: assets/posters/Fun_Workshop-05.jpg
+  poster_zh: assets/posters/Fun_Workshop-05.jpg
 
 - id: wkshp-may11
   date_en: |
