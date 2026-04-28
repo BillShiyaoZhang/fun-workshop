@@ -92,10 +92,38 @@ th,td{
 table.navigation{width:800px;}
 td.navigation{font-size:1.67em; white-space:nowrap; width:20%; text-align:center; vertical-align:middle; padding:0px 0px 0px 0px;}
 
-/* Sponsor Images */
-table.sponsors{width:800px;}
-td.sponsor{white-space:nowrap; width:33%; text-align:center; vertical-align:middle; padding:0px 0px 0px 0px;}
-td.sponsor img{width: 100%}
+/* Co-organizer Images */
+.co-organizers-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.co-organizer-item {
+    flex: 1 1 calc(25% - 30px);
+    min-width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.co-organizer-logo {
+    margin-bottom: 10px;
+}
+
+.co-organizer-logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.co-organizer-name {
+    font-size: 0.9em;
+}
 
 /* The Table on the Program Page */
 td.room{padding: 4px 12px 4px 4px; width: 90%; vertical-align:bottom; font-size:1.67em; color: #52739e; height:32px;}
@@ -116,7 +144,6 @@ img.center{display:block; width:67%; margin:1em auto 2em auto;}
 table.flyers{width:100%; max-width:800px;}
 td.flyer{white-space:normal; width:50%; text-align:center; vertical-align:middle; padding:0px 0px 0px 0px;}
 td.flyer p{width:auto; margin:0 auto; text-align:center;}
-td.sponsor img{width: 100%}
 
 footer{font-size:0.875em; margin-top:12em; text-align:center;}
 

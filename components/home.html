@@ -103,50 +103,38 @@
 
 <div class="lang-en">
     <p>
-        Here&rsquo;s a good place to list the organizers and sponsors of the conference,
+        Here&rsquo;s a good place to list the organizers and co-organizers of the conference,
         as well as list contact information for the organizers,
-        and show off the logos of the sponsors.
-        It looks like his conference was sponsored by kittens!
+        and show off the logos of the co-organizers.
+        It looks like his conference was co-organized by kittens!
     </p>
 </div>
 <div class="lang-zh">
     <p>
-        这里是列举会议组织者和赞助商、提供组织者联系信息以及展示赞助商标志的好位置。
-        看起来这个会议是由小猫咪赞助的！
+        这里是列举会议组织者和协办方、提供组织者联系信息以及展示协办方标志的好位置。
+        看起来这个会议是由小猫咪协助举办的！
     </p>
 </div>
 
-<table class="sponsors">
-    <tr>
-        <td class="sponsor">
-            <a href="https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/">
-                <img src="assets/the-kitten.jpg" alt="Unofficial Guide for XJTLU PGRS">
+<div class="co-organizers-container">
+    {% for org in site.data.co_organizers %}
+    <div class="co-organizer-item">
+        <div class="co-organizer-logo">
+            {% if org.url %}
+            <a href="{{ org.url }}">
+                <img src="{{ org.logo }}" alt="{{ org.name }}" {% if org.style %}style="{{ org.style }}"{% endif %}>
             </a>
-        </td>
-        <td class="sponsor">
-            <img src="assets/cozy-logo.jpg" alt="Cozy Coffee" style="width: 80%">
-        </td>
-        <td class="sponsor">
-            <img src="assets/sentio-logo.jpeg" alt="SentioKlub" style="width: 80%">
-        </td>
-        <td class="sponsor">
-            <img src="assets/IOT-logo-blue.png" alt="School of Internet of Things, XJTLU" style="width: 80%">
-        </td>
-    </tr>
-    <tr>
-        <td class="sponsor">
-            <a href="https://github.com/xp-pgrs-unofficial-guide/xp_pgrs_unofficial_guide/">
-                Unofficial Guide for XJTLU PGRS
-            </a>
-        </td>
-        <td class="sponsor">
-            Cozy Coffee
-        </td>
-        <td class="sponsor">
-            SentioKlub
-        </td>
-        <td class="sponsor">
-            School of Internet of Things, XJTLU
-        </td>
-    </tr>
-</table>
+            {% else %}
+            <img src="{{ org.logo }}" alt="{{ org.name }}" {% if org.style %}style="{{ org.style }}"{% endif %}>
+            {% endif %}
+        </div>
+        <div class="co-organizer-name">
+            {% if org.url %}
+            <a href="{{ org.url }}">{{ org.name }}</a>
+            {% else %}
+            {{ org.name }}
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
