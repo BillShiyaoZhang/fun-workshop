@@ -63,8 +63,8 @@
             <div class="speaker-name"><span class="lang-en">{{ speaker.name_en }}</span><span class="lang-zh">{{ speaker.name_zh }}</span></div>
             <div class="speaker-contact"><span class="lang-en">{{ speaker.title_en }}</span><span class="lang-zh">{{ speaker.title_zh }}</span></div>
             <div class="speaker-bio">
-                <span class="lang-en">{{ speaker.bio_en }}</span>
-                <span class="lang-zh">{{ speaker.bio_zh }}</span>
+                <span class="lang-en">{{ speaker.bio_en | newline_to_br }}</span>
+                <span class="lang-zh">{{ speaker.bio_zh | newline_to_br }}</span>
             </div>
             
             {% assign participated = "" | split: "," %}
