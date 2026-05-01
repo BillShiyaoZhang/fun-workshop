@@ -67,10 +67,8 @@
 - id: wkshp-apr28
   date_en: |
     April 28
-    13:00 - 15:00
   date_zh: |
     4月28号
-    13:00 - 15:00
   title_en: Thoughts on procrastination
   title_zh: 拖延症和一些实践
   speakers:
@@ -92,14 +90,41 @@
   title_zh: 花甲部落
   speakers:
     - id: yajing-liu
+  abstract_en: |
+    A one-stop platform dedicated to honoring older adults through cultural eldercare and fostering meaningful intergenerational co-creation.
+    
+    Centered on intergenerational cultural heritage.
+    Pioneering a new approach to care.
+  abstract_zh: |
+    一站式文化养老与代际共创平台，赋能未来养老生活。
+    以代际文化传承为核心，创造一种新型的关爱方式。
+  poster_en: assets/posters/Fun_Workshop-06.jpg
+  poster_zh: assets/posters/Fun_Workshop-06.jpg
+
+- id: wkshp-w12
+  date_en: |
+    Around May 19
+    17:00 - 19:00
+  date_zh: |
+    5月19号左右
+    17:00 - 19:00
+  title_en: Gemstones and How to Identify Them
+  title_zh: 宝石及如何识别
+  speakers:
+    - id: yan-wan
+    - id: kiki
   abstract_en: 
   abstract_zh:
   poster_en: 
   poster_zh: 
 
-- id: wkshp-w12
-  date_en: Week 12 or 13
-  date_zh: 第 12 或 13 周
+- id: wkshp-may25
+  date_en: |
+    May 25
+    17:00 - 19:00
+  date_zh: |
+    5月25号
+    17:00 - 19:00
   title_en: Business story of Swigar
   title_zh: Swigar 的创业故事
   speakers:
