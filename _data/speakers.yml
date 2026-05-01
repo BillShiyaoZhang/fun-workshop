@@ -57,16 +57,16 @@
 - id: yajing-liu
   name_en: Yajing Liu
   name_zh: Yajing Liu
-  title_en: |
-    Ph.D. candidate jointly supervised by the College of Industry-Entrepreneurs and the HeXie Management Research Centre at Xi'an Jiaotong-Liverpool University, as well as the Institute of Sociology, Social Policy and Criminology at the University of Liverpool in the United Kindom.
+  title_en: Ph.D. candidate
+  title_zh: 博士候选人
+  bio_en: |
+    Yajing is jointly supervised by the College of Industry-Entrepreneurs and the HeXie Management Research Centre at Xi'an Jiaotong-Liverpool University, as well as the Institute of Sociology, Social Policy and Criminology at the University of Liverpool in the United Kindom.
 
     Yajing's research focuses on Bridging the Digital Divide, particularly on Effective Governance Strategies for the Older Adults Care Ecosystem in the Digital Intelligence Era.
-  title_zh: |
-    博士候选人，由西交利物浦大学产业家学院与和谐管理研究中心，以及英国利物浦大学社会学、社会政策与犯罪学研究所联合培养。
+  bio_zh: |
+    由西交利物浦大学产业家学院与和谐管理研究中心，以及英国利物浦大学社会学、社会政策与犯罪学研究所联合培养。
 
     Yajing 的研究主要关注弥合数字鸿沟，特别是数智时代下养老照护生态系统的有效治理策略。
-  bio_en: Biography coming soon.
-  bio_zh: 简介完善中。
 
 - id: zonghan-li
   name_en: Zonghan Li
